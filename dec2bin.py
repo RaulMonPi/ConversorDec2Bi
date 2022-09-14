@@ -1,5 +1,14 @@
     while len(numero_binario) < numero_bits:      # añade 0's a la izquierda si hace falta
         numero_binario = "0" + numero_binario
+    if numero_decimal >= 0:
+     numero_binario = numero_binario[2:len(numero_binario)]  # quita el "0b" del principio
+    
+     while len(numero_binario) < numero_bits:      # añade 0's a la izquierda si hace falta
+            numero_binario = "0" + numero_binario
+    else: 
+         numero_binario = numero_binario[3:len(numero_binario)] # quita el "-0b" del principio
+         while len(numero_binario) < numero_bits: # añade 1's a la izquierda si hace falta
+           numero_binario = "1" + numero_binario
     return numero_binario
 
 # ----------------------------------------
@@ -7,6 +16,7 @@
 # ----------------------------------------
 if __name__ == "__main__":
     # Pide al usuario el número a convertir y el número de bits 
+    # Como el resultado de input es de tipo string, se convierte a entero usando int()
     numero_decimal = int(input("Escribe el número en decimal que quieres convertir: "))
     numero_bits = int(input("Cuantos bits tendrá el número binario: "))
 
